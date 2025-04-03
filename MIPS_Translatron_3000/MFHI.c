@@ -41,9 +41,8 @@ void mfhi_reg_assm(void)
 	// Set the funct
 	setBits_str(5, "010010");
 	// set 25-16 as 0s
-	// Changed setBits_str(21, "000000"); to setBits_str(16, "000000");
-	setBits_str(16, "000000");
-	setBits_str(25, "000000");
+	// removed setBits_str(21, "000000"); and increased the next line to 10 bits
+	setBits_str(25, "0000000000");
 	// set 10-6 as 0s
 	setBits_str(10, "00000");
 

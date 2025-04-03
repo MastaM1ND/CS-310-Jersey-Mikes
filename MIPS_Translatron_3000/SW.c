@@ -88,6 +88,7 @@ void sw_immd_bin(void)
 	setParam(1, REGISTER, Rt);		// Set the first parameter as a register (Rt)
 	setParam(2, IMMEDIATE, offset); // Set the second parameter as an immediate value (offset)
 	setParam(3, REGISTER, Rs);		// Set the third parameter as a register (Rs)
+	// FLip the order of the offset and Rs to match the assembly function
 
 	state = COMPLETE_DECODE; // Set state to indicate successful decoding
 }

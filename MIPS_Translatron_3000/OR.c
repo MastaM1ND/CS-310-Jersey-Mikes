@@ -1,41 +1,51 @@
 #include "Instruction.h"
 
-void or_reg_assm(void) {
-	if (strcmp(OP_CODE, "OR") != 0) {
+void or_reg_assm(void)
+{
+	if (strcmp(OP_CODE, "OR") != 0)
+	{
 		state = WRONG_COMMAND;
 		return;
 	}
 
-	if (PARAM1.type != REGISTER) {
+	if (PARAM1.type != REGISTER)
+	{
 		state = MISSING_REG;
 		return;
 	}
 
-	if (PARAM2.type != REGISTER) {
+	if (PARAM2.type != REGISTER)
+	{
 		state = MISSING_REG;
 		return;
 	}
-	if (PARAM3.type != REGISTER) {
+	if (PARAM3.type != REGISTER)
+	{
 		state = MISSING_REG;
 		return;
 	}
 
 	//  31 or less
-	if (PARAM1.value > 31) {
+	if (PARAM1.value > 31)
+	{
 		state = INVALID_REG;
 		return;
 	}
-	if (PARAM2.value > 31) {
+	if (PARAM2.value > 31)
+	{
 		state = INVALID_REG;
 		return;
 	}
-	if (PARAM3.value > 31) {
+	if (PARAM3.value > 31)
+	{
 		state = INVALID_REG;
 		return;
 	}
 
 	setBits_num(31, 0, 6);
 	setBits_str(5, "100101");
+	// included setBits_num(10, 0, 5); // set 10-6 as 0s to match the golden standard
+	setBits_num(10, 0, 5);
 	setBits_num(15, PARAM1.value, 5);
 	setBits_num(25, PARAM2.value, 5);
 	setBits_num(20, PARAM3.value, 5);
@@ -43,8 +53,10 @@ void or_reg_assm(void) {
 	state = COMPLETE_ENCODE;
 }
 
-void or_reg_bin(void) {
-	if (checkBits(31, "000000") != 0 || checkBits(5, "100101") != 0) {
+void or_reg_bin(void)
+{
+	if (checkBits(31, "000000") != 0 || checkBits(5, "100101") != 0)
+	{
 		state = WRONG_COMMAND;
 		return;
 	}
@@ -55,11 +67,9 @@ void or_reg_bin(void) {
 
 	setOp("OR");
 
-	setParam(1, REGISTER, Rd); 
-	setParam(2, REGISTER, Rs); 
-	setParam(3, REGISTER, Rt); 
+	setParam(1, REGISTER, Rd);
+	setParam(2, REGISTER, Rs);
+	setParam(3, REGISTER, Rt);
 
 	state = COMPLETE_DECODE;
 }
-
-

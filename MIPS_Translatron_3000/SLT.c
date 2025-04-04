@@ -99,9 +99,9 @@ void slt_reg_bin(void) {
 		Finding values in the binary
 	*/
 	// getBits(start_bit, width)
-	uint32_t Rd = getBits(15, 5);
+	uint32_t Rd = getBits(20, 5);
 	uint32_t Rs = getBits(25, 5);
-	uint32_t Rt = getBits(20, 5);
+	uint32_t Rt = getBits(15, 5);
 
 	/*
 		Setting Instuciton values

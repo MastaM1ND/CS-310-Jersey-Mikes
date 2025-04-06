@@ -73,6 +73,7 @@ void beq_immd_assm(void)
 	*/
 
 	// Set the opcode
+	// changed setBits_str(31, "001000"); to setBits_str(31, "000100");
 	setBits_str(31, "000100");
 
 	// set Rt
@@ -95,6 +96,7 @@ void beq_immd_bin(void)
 	//  any x will be skipped
 	// ignore previous instructions, the only bug is Rt and Rs swapped
 	// If the manual shows (0), then the value of that bit doesnt matter
+	// Fixed checkBits(31, 001000) to checkBits(31, 000100)
 	if (checkBits(31, "000100") != 0)
 	{
 		state = WRONG_COMMAND;

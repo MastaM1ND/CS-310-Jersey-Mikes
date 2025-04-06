@@ -66,6 +66,7 @@ void and_reg_assm(void) {
 	// Set the funct 
 	setBits_str(5, "100100");
 
+	//switched rd with rs value
 	// set Rd
 	setBits_num(15, PARAM1.value, 5);
 

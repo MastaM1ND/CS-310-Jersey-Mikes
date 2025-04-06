@@ -23,6 +23,8 @@ void lui_immd_assm(void) {
 		Checking the type of parameters
 	*/
 
+	//PARAM 3 REMOVED, ONLY NEEDS 2 PARAMETERS
+
 	// The first parameter should be a register
 	if (PARAM1.type != REGISTER) {
 		state = MISSING_REG;

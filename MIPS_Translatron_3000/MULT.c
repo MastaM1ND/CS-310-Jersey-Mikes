@@ -29,12 +29,6 @@ void mult_reg_assm(void) {
         return;
     }
 
-    // If a third parameter is provided, it's invalid for MULT
-    if (PARAM3.type != EMPTY) {
-        state = INVALID_REG;
-        return;
-    }
-
     /*
         Checking the value of parameters
     */
